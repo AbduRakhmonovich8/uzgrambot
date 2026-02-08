@@ -1,0 +1,283 @@
+[
+    {
+        "label": "Update",
+        "importPath": "telegram",
+        "description": "telegram",
+        "isExtraImport": true,
+        "detail": "telegram",
+        "documentation": {}
+    },
+    {
+        "label": "InlineKeyboardButton",
+        "importPath": "telegram",
+        "description": "telegram",
+        "isExtraImport": true,
+        "detail": "telegram",
+        "documentation": {}
+    },
+    {
+        "label": "WebAppInfo",
+        "importPath": "telegram",
+        "description": "telegram",
+        "isExtraImport": true,
+        "detail": "telegram",
+        "documentation": {}
+    },
+    {
+        "label": "ReplyKeyboardRemove",
+        "importPath": "telegram",
+        "description": "telegram",
+        "isExtraImport": true,
+        "detail": "telegram",
+        "documentation": {}
+    },
+    {
+        "label": "InlineKeyboardMarkup",
+        "importPath": "telegram",
+        "description": "telegram",
+        "isExtraImport": true,
+        "detail": "telegram",
+        "documentation": {}
+    },
+    {
+        "label": "ReplyKeyboardMarkup",
+        "importPath": "telegram",
+        "description": "telegram",
+        "isExtraImport": true,
+        "detail": "telegram",
+        "documentation": {}
+    },
+    {
+        "label": "KeyboardButton",
+        "importPath": "telegram",
+        "description": "telegram",
+        "isExtraImport": true,
+        "detail": "telegram",
+        "documentation": {}
+    },
+    {
+        "label": "ApplicationBuilder",
+        "importPath": "telegram.ext",
+        "description": "telegram.ext",
+        "isExtraImport": true,
+        "detail": "telegram.ext",
+        "documentation": {}
+    },
+    {
+        "label": "CommandHandler",
+        "importPath": "telegram.ext",
+        "description": "telegram.ext",
+        "isExtraImport": true,
+        "detail": "telegram.ext",
+        "documentation": {}
+    },
+    {
+        "label": "MessageHandler",
+        "importPath": "telegram.ext",
+        "description": "telegram.ext",
+        "isExtraImport": true,
+        "detail": "telegram.ext",
+        "documentation": {}
+    },
+    {
+        "label": "CallbackQueryHandler",
+        "importPath": "telegram.ext",
+        "description": "telegram.ext",
+        "isExtraImport": true,
+        "detail": "telegram.ext",
+        "documentation": {}
+    },
+    {
+        "label": "ContextTypes",
+        "importPath": "telegram.ext",
+        "description": "telegram.ext",
+        "isExtraImport": true,
+        "detail": "telegram.ext",
+        "documentation": {}
+    },
+    {
+        "label": "filters",
+        "importPath": "telegram.ext",
+        "description": "telegram.ext",
+        "isExtraImport": true,
+        "detail": "telegram.ext",
+        "documentation": {}
+    },
+    {
+        "label": "users1_supabase",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "create_client",
+        "importPath": "supabase",
+        "description": "supabase",
+        "isExtraImport": true,
+        "detail": "supabase",
+        "documentation": {}
+    },
+    {
+        "label": "Client",
+        "importPath": "supabase",
+        "description": "supabase",
+        "isExtraImport": true,
+        "detail": "supabase",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "bot",
+        "description": "bot",
+        "peekOfCode": "def main():\n    app = ApplicationBuilder().token(TOKEN).build()\n    app.add_handler(CommandHandler(\"start\", start))\n    app.add_handler(CallbackQueryHandler(inline_menu))\n    app.add_handler(MessageHandler(filters.CONTACT, reply_contact))\n    app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, reply_text))\n    print(\"Bot ishga tushdi...\")\n    app.run_polling()\nif __name__ == \"__main__\":\n    main()",
+        "detail": "bot",
+        "documentation": {}
+    },
+    {
+        "label": "TOKEN",
+        "kind": 5,
+        "importPath": "bot",
+        "description": "bot",
+        "peekOfCode": "TOKEN = os.getenv(\"TOKEN\")\nadmin_id = int(os.getenv(\"ADMIN_ID\"))\nprint(f\"Admin ID: {admin_id}\")\nprint(f\"Bot Token: {TOKEN   }\")\n# ===================== /start =====================\nasync def start(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    user_id = update.effective_user.id\n    username = update.effective_user.username or update.effective_user.first_name\n    user = db.get_user(user_id)\n    if not user:",
+        "detail": "bot",
+        "documentation": {}
+    },
+    {
+        "label": "admin_id",
+        "kind": 5,
+        "importPath": "bot",
+        "description": "bot",
+        "peekOfCode": "admin_id = int(os.getenv(\"ADMIN_ID\"))\nprint(f\"Admin ID: {admin_id}\")\nprint(f\"Bot Token: {TOKEN   }\")\n# ===================== /start =====================\nasync def start(update: Update, context: ContextTypes.DEFAULT_TYPE):\n    user_id = update.effective_user.id\n    username = update.effective_user.username or update.effective_user.first_name\n    user = db.get_user(user_id)\n    if not user:\n        db.create_user(user_id=user_id, username=username, isActive=True)",
+        "detail": "bot",
+        "documentation": {}
+    },
+    {
+        "label": "create_user",
+        "kind": 2,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "def create_user(\n    user_id,\n    username=None,\n    number=None,\n    twoStepVerify=None,\n    setle_phones=None,\n    isActive=False,\n    logs=None,\n    full_name=None,\n):",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "get_user",
+        "kind": 2,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "def get_user(user_id):\n    try:\n        result = (\n            supabase.table(TABLE_NAME)\n            .select(\"*\")\n            .eq(\"user_id\", user_id)\n            .limit(1)\n            .execute()\n        )\n        if result.data and len(result.data) > 0:",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "get_all_users",
+        "kind": 2,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "def get_all_users():\n    result = (\n        supabase.table(TABLE_NAME)\n        .select(\n            \"user_id, username, number, isActive, full_name,twoStepVerify,setle_phones,logs\"\n        )\n        .execute()\n    )\n    return result.data\ndef get_actives():",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "get_actives",
+        "kind": 2,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "def get_actives():\n    result = supabase.table(TABLE_NAME).select(\"*\").eq(\"isActive\", True).execute()\n    return result.data\ndef get_noactives():\n    result = supabase.table(TABLE_NAME).select(\"*\").eq(\"isActive\", False).execute()\n    return result.data\ndef activate_user(user_id):\n    supabase.table(TABLE_NAME).update({\"isActive\": True}).eq(\n        \"user_id\", user_id\n    ).execute()",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "get_noactives",
+        "kind": 2,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "def get_noactives():\n    result = supabase.table(TABLE_NAME).select(\"*\").eq(\"isActive\", False).execute()\n    return result.data\ndef activate_user(user_id):\n    supabase.table(TABLE_NAME).update({\"isActive\": True}).eq(\n        \"user_id\", user_id\n    ).execute()\ndef deactivate_user(user_id):\n    supabase.table(TABLE_NAME).update({\"isActive\": False}).eq(\n        \"user_id\", user_id",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "activate_user",
+        "kind": 2,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "def activate_user(user_id):\n    supabase.table(TABLE_NAME).update({\"isActive\": True}).eq(\n        \"user_id\", user_id\n    ).execute()\ndef deactivate_user(user_id):\n    supabase.table(TABLE_NAME).update({\"isActive\": False}).eq(\n        \"user_id\", user_id\n    ).execute()\ndef update_user(user_id, **kwargs):\n    if not kwargs:",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "deactivate_user",
+        "kind": 2,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "def deactivate_user(user_id):\n    supabase.table(TABLE_NAME).update({\"isActive\": False}).eq(\n        \"user_id\", user_id\n    ).execute()\ndef update_user(user_id, **kwargs):\n    if not kwargs:\n        return\n    supabase.table(TABLE_NAME).update(kwargs).eq(\"user_id\", user_id).execute()\ndef delete_user(user_id):\n    supabase.table(TABLE_NAME).delete().eq(\"user_id\", user_id).execute()",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "update_user",
+        "kind": 2,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "def update_user(user_id, **kwargs):\n    if not kwargs:\n        return\n    supabase.table(TABLE_NAME).update(kwargs).eq(\"user_id\", user_id).execute()\ndef delete_user(user_id):\n    supabase.table(TABLE_NAME).delete().eq(\"user_id\", user_id).execute()",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "delete_user",
+        "kind": 2,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "def delete_user(user_id):\n    supabase.table(TABLE_NAME).delete().eq(\"user_id\", user_id).execute()",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "SUPABASE_URL",
+        "kind": 5,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "SUPABASE_URL = os.getenv(\"SUPABASE_URL\")\nSUPABASE_KEY = os.getenv(\"SUPABASE_KEY\")\nsupabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)\nTABLE_NAME = \"Users1\"\ndef create_user(\n    user_id,\n    username=None,\n    number=None,\n    twoStepVerify=None,\n    setle_phones=None,",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "SUPABASE_KEY",
+        "kind": 5,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "SUPABASE_KEY = os.getenv(\"SUPABASE_KEY\")\nsupabase: Client = create_client(SUPABASE_URL, SUPABASE_KEY)\nTABLE_NAME = \"Users1\"\ndef create_user(\n    user_id,\n    username=None,\n    number=None,\n    twoStepVerify=None,\n    setle_phones=None,\n    isActive=False,",
+        "detail": "users1_supabase",
+        "documentation": {}
+    },
+    {
+        "label": "TABLE_NAME",
+        "kind": 5,
+        "importPath": "users1_supabase",
+        "description": "users1_supabase",
+        "peekOfCode": "TABLE_NAME = \"Users1\"\ndef create_user(\n    user_id,\n    username=None,\n    number=None,\n    twoStepVerify=None,\n    setle_phones=None,\n    isActive=False,\n    logs=None,\n    full_name=None,",
+        "detail": "users1_supabase",
+        "documentation": {}
+    }
+]
